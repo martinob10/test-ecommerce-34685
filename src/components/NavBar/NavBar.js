@@ -5,7 +5,7 @@ const NavBar = () => {
     return(
         // Fragment
         <div className='navbar-primary'>
-            <h1>Logo</h1>
+            <img src="/assets/logo.svg" alt="logo adidas" />
             <ul>
                 <li><button>Inicio</button></li>
                 <li><button>Productos</button></li>
