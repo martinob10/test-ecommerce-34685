@@ -1,6 +1,7 @@
 import ItemProduct from "../ItemProduct/ItemProduct"
+import './ItemListContainer.scss'
 
-const ItemContainer = ({section}) => {
+const ItemListContainer = ({section}) => {
 
     return(
         <div className='list-products'>
@@ -11,4 +12,4 @@ const ItemContainer = ({section}) => {
     )
 }
 
-export default ItemContainer
+export default ItemListContainer

@@ -1,27 +1,26 @@
 import './App.scss';
 import NavBar from './components/NavBar/NavBar';
-import ItemContainer from './components/ItemContainer/ItemContainer';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Modal from './components/Modal/Modal';
 
 function App() {
-  const styleApp = { padding: '10px 20px', marginTop : 10}
   return (
     //JSX
-    <div className="container" style={styleApp} >
+    <div className="container" >
       <NavBar />
-      <div className='main-container'>
-        <ItemContainer section="Productos en oferta"/>
-        <ItemContainer section="Productos de temporada"/>
-        <ItemContainer section="Productos mas comprados"/>
-      </div>
-      <Modal title="MODAL DE REGISTRO">
+      <section className='main-container'>
+        <ItemListContainer section="Productos en oferta"/>
+        {/* <ItemListContainer section="Productos de temporada"/>
+        <ItemListContainer section="Productos mas comprados"/> */}
+      </section>
+      {/* <Modal title="MODAL DE REGISTRO">
         <form>
           <input type="text" />
           <input type="text" />
           <input type="text" />
           <button>enviar</button>
         </form>
-      </Modal>
+      </Modal> */}
     </div>
   );
 }

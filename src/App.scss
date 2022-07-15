@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap');
+
 * {
     box-sizing: border-box;
+    font-weight: 400;
+    font-family: 'Oswald', sans-serif;
 }
 
 .main-container {
@@ -7,8 +11,3 @@
     width: 100%;
 }
 
-.list-products {
-    float: left;
-    width: 100%;
-    margin-bottom: 20px;
-}
