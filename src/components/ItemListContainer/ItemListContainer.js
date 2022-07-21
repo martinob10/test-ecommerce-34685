@@ -1,36 +1,50 @@
-import { useEffect } from "react"
-import ItemProduct from "../ItemProduct/ItemProduct"
+import { useEffect, useState } from "react"
+import ItemList from "../ItemList/ItemList"
 import './ItemListContainer.scss'
+import products from '../../utils/products.mock'
 
+//Funcion asincrona
+// const getLog = async () => {
+//     try {
+//         const responseLog = await logPromise()
+//         console.log("Respuesta desde async function" + responseLog)
+//     }
+//     catch(error) {
+//         console.log(error)
+//     }
+// }
+//getLog()
 const ItemListContainer = ({section}) => {
-    const product1 = {
-        title: "Campera Invierno",
-        price: 15000,
-        image: 'img1.webp',
-        stock: 6
-    }
 
-    const product2 = {
-        title: "Remera",
-        price: 34000,
-        image: 'img2.webp',
-        stock: 10
-    }
+    const [listProducts, setListProducts] = useState([])
 
-    useEffect( () => {
-        //console.log("Ejecuto en fase de actualizacion")
-        // fetch().then(
-        //     setProduct()
-        // )
+    const getProducts = new Promise( (resolve, reject) => {
+        setTimeout( () => {
+            resolve(products)
+        }, 2000)
     })
 
-    const handleSubmit = () => {console.log("Envio de info")}
+    useEffect(() => {
+        getProducts
+            .then( (res) => { // Respuesta OK
+                //console.log("Productos: ", res)
+                setListProducts(res)
+            })
+            .catch( (error) => { // Falla la respuesta
+                console.log("la llama fallo")
+            })
+            .finally( () => { // Siempre que termina por OK o Fallo
+            //setSpinner(false) 
+            })
+    }, [])
+
+
+
 
     return(
         <div className='list-products'>
             <h2>{section}</h2>
-            <ItemProduct data={product1} action={handleSubmit}/>
-            <ItemProduct data={product2}/>
+            <ItemList dataProducts={listProducts}/>
         </div>
     )
 }
