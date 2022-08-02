@@ -83,3 +83,23 @@
 .item-product:nth-of-type(5n) {
     margin-right: 0px !important;
 }
+
+.detail-product button {
+    float: left;
+    width: 100%;
+    background: black;
+    border: 1px solid black;
+    color: white;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+.detail-product button:hover {
+    background-color: white;
+    color:black;
+}
+.detail-product {
+    padding: 0px 10px;
+}

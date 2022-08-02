@@ -1,27 +1,26 @@
 import './App.scss';
 import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import Modal from './components/Modal/Modal';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home';
+import Contact from './pages/Contact';
+import Detail from './pages/Detail';
+import Checkout from './pages/Checkout';
 
 function App() {
+
   return (
     //JSX
-    <div className="container" >
-      <NavBar />
-      <section className='main-container'>
-        <ItemListContainer section="Productos en oferta"/>
-        {/* <ItemListContainer section="Productos de temporada"/>
-        <ItemListContainer section="Productos mas comprados"/> */}
-      </section>
-      {/* <Modal title="MODAL DE REGISTRO">
-        <form>
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
-          <button>enviar</button>
-        </form>
-      </Modal> */}
-    </div>
+    <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/contacto" element={<Contact />}/>
+          <Route path="/productos" element={<h1>Productos</h1>}/>
+          <Route path="/productos/:id" element={<Detail />} />
+          <Route path='/cart' element={<Checkout />}/>
+          <Route path="*" element={<h1>ERROR 404 -  pagina no encontrada</h1>}/>
+        </Routes>
+    </BrowserRouter>
   );
 }
 

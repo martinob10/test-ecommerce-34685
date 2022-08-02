@@ -1,6 +1,7 @@
 // UpperCamelCase
 import './NavBar.scss'
 import CartWidget from './CartWidget'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
     return(
@@ -8,10 +9,10 @@ const NavBar = () => {
         <div className='navbar-primary'>
             <img src="/assets/logo.svg" alt="logo adidas" />
             <ul>
-                <li><button>Inicio</button></li>
-                <li><button>Productos</button></li>
-                <li><button>About Us</button></li>
-                <li><button>Contacto</button></li>
+                <Link to="/"><li><button>Inicio</button></li></Link>
+                <Link to="/productos"><li><button>Productos</button></li></Link>
+                <Link to=""><li><button>About Us</button></li></Link>
+                <Link to="/contacto"><li><button>Contacto</button></li></Link>
             </ul>
             <CartWidget />
         </div>

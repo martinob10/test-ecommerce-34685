@@ -2,6 +2,7 @@ const products = [
     {
         id:1,
         title: "Campera Invierno",
+        category: "camperas",
         price: 15000,
         image: 'img1.webp',
         stock: 6
@@ -9,6 +10,7 @@ const products = [
     {
         id:2,
         title: "Remera",
+        category: "remeras",
         price: 34000,
         image: 'img2.webp',
         stock: 10
