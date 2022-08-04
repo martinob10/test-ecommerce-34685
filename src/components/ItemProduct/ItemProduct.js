@@ -25,6 +25,10 @@ const ItemProduct = ({data, action}) => {
         // setContador(1)
     }, [contador])
 
+    const addToCart = (e) => {
+        console.log("click Producto")
+        e.stopPropagation()
+    }
 
 
     return(
@@ -41,12 +45,7 @@ const ItemProduct = ({data, action}) => {
                     <p><CreditCardIcon /> 6 Cuotas sin interes</p>
                     <p><DeliveryDiningIcon />Envio fratis a partir de $6000</p>
                     <span>$ {price}</span>
-                    {/* <div className='countProd'>
-                        <button onClick={removeNumber}>-</button>
-                        <p>{contador}</p>
-                        <button onClick={addNumber}>+</button>
-                    </div> */}
-                    <button onClick={handleClick}>AÑADIR AL CARRITO</button>
+                    <button onClick={addToCart}>AÑADIR AL CARRITO</button>
                 </div>
         </Link>
             </div> 

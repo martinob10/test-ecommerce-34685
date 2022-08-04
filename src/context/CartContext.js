@@ -3,18 +3,23 @@ import { createContext, useState } from "react";
 const CartContext = createContext()
 
 const CartProvider = ({children}) => {
-    const [name, setName] = useState('Christian') 
+    const [cartProducts, setCartProducts] = useState([])
 
-    const handleClick = () => {
-        console.log("funcion desde context")
+    const addProductToCart = (product) => {
+        setCartProducts([...cartProducts, product])
+    }
+
+    const clear = () => {
+        setCartProducts([])
     }
 
     const data = {
-        name,
-        setName,
-        handleClick
+        cartProducts,
+        setCartProducts,
+        clear,
+        addProductToCart
     }
-    
+
     return(
         <CartContext.Provider value={data}>
             {children}
