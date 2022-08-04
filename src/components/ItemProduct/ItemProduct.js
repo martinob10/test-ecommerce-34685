@@ -1,13 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import './ItemProduct.scss'
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Link } from 'react-router-dom'
+import { CartContext } from '../../context/CartContext';
 
 const ItemProduct = ({data, action}) => {
+    const { handleClick, name } = useContext(CartContext)
+
+
     const [contador, setContador] = useState(1)
-    console.log("product Data: ", data)
     const {title, image, price, stock, id} = data
 
     const addNumber = () => {
@@ -16,21 +19,6 @@ const ItemProduct = ({data, action}) => {
     const removeNumber = () => {
         setContador(contador - 1)
     }
-    //1. Mount -> Crea
-    // useEffect( () => {
-
-    // }, [])
-
-    //2. Update/Change/Actualizacion -> Cambio el valor State/prop
-    // useEffect( () => {
-
-    // })
-    //3. Unmount/Desmontaje -> Destruye, desaparece
-    // useEffect( () => {
-        // return () => {
-            //     console.log("se desmonta el componente")
-            // }
-    // })
 
     useEffect( () => {
         console.log("Actualizacion")
@@ -42,6 +30,7 @@ const ItemProduct = ({data, action}) => {
     return(
         <div className="item-product">
                 <Link to={`/productos/${id}`}> 
+                <h1>{name}</h1>
                 <div className='float-options'>
                     <p>ENVIO GRATIS</p>
                     <button><FavoriteBorderIcon /></button>
@@ -57,7 +46,7 @@ const ItemProduct = ({data, action}) => {
                         <p>{contador}</p>
                         <button onClick={addNumber}>+</button>
                     </div> */}
-                    <button>AÑADIR AL CARRITO</button>
+                    <button onClick={handleClick}>AÑADIR AL CARRITO</button>
                 </div>
         </Link>
             </div> 
