@@ -3,13 +3,16 @@ import './ItemDetail.scss'
 import { useState } from "react"
 import { Link } from 'react-router-dom'
 
-const ItemDetail = ({data}) => {
+const ItemDetail = ({data, setShowModal}) => {
     const [quantitySelected, setQuantitySelected] = useState(0)
-
     return(
         <>
-            <div className="item-detail-image">
-                <img src={`/assets/${data.image}`} alt="imagen" />
+            <div className="item-detail-image" >
+                <img 
+                    src={`/assets/${data.image}`} 
+                    alt="imagen" 
+                    onClick={() => setShowModal(true)}
+                />
             </div>
             <div className="item-detail-info">
                 <span className="category">Hombre - Remeras</span>

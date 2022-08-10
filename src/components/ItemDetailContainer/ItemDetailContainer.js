@@ -3,12 +3,13 @@ import ItemDetail from "../ItemDetail/ItemDetail"
 import './ItemDetailContainer.scss'
 import products from "../../utils/products.mock"
 import { useParams } from 'react-router-dom'
+import Modal from '../Modal/Modal'
 
 const ItemDetailContainer = () => {
     const [productData, setProductData] = useState({})
-
+    const [showModal, setShowModal] = useState(false)
     const { id } = useParams()
-    
+
     useEffect( () => {
         filterById()
     }, [id])
@@ -23,8 +24,13 @@ const ItemDetailContainer = () => {
     )
     }
     return(
-        <div className="container-item-detail">
-            <ItemDetail data={productData}/>
+        <div className={`container-item-detail ${showModal ? 'overlay-black' : ''}`}>
+            <ItemDetail data={productData} setShowModal={setShowModal}/>
+            {showModal && (
+                <Modal title="Imagen Producto" close={setShowModal}>
+                    <img src={`/assets/${productData.image}`} />
+                </Modal>
+            )}
         </div>
     )
 }

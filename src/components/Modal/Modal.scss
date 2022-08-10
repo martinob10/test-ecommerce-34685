@@ -11,20 +11,31 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background: white;
-    width: 400px;
-    height: 500px;
+    width: 90vw;
+    height: 90vh;
     box-shadow: 1px 5px 5px #00000047;
     border-radius: 5px;
     padding: 20px;
+    overflow: hidden;
 }
+.modal-custom svg {
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    cursor: pointer;
+}
+// .modal-custom:before {
+//     content: "";
+//     width: 100vw;
+//     height: 100vh;
+//     background: black;
+//     position: fixed;
+//     z-index: -1;
+//     left: 0px;
+//     top: 0px;
+//     position: fixed;
+// }
 
-.modal-custom:before {
-    /* content: ""; */
-    width: 100vw;
-    height: 100vh;
-    background: black;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: -1;
+.modal-custom img {
+    width: 100%;
 }

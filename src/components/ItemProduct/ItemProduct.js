@@ -26,14 +26,14 @@ const ItemProduct = ({data, action}) => {
     }, [contador])
 
     const addToCart = (e) => {
-        console.log("click Producto")
-        e.stopPropagation()
+        console.log("click Producto", e)
+        e.preventDefault();
     }
 
 
     return(
         <div className="item-product">
-                <Link to={`/productos/${id}`}> 
+            <Link to={`/productos/${id}`}> 
                 <h1>{name}</h1>
                 <div className='float-options'>
                     <p>ENVIO GRATIS</p>
@@ -44,11 +44,11 @@ const ItemProduct = ({data, action}) => {
                     <p>{title}</p>
                     <p><CreditCardIcon /> 6 Cuotas sin interes</p>
                     <p><DeliveryDiningIcon />Envio fratis a partir de $6000</p>
-                    <span>$ {price}</span>
+                    <span onClick={addToCart}>$ {price}</span>
                     <button onClick={addToCart}>AÑADIR AL CARRITO</button>
                 </div>
-        </Link>
-            </div> 
+            </Link>
+        </div> 
     )
 }
 
